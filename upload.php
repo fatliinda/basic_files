@@ -21,6 +21,23 @@ $upload_errors=array(
 
 );
 
+$temp_name=$_FILES['file_upload']['tmp_name'];
+$the_file=$_FILES['file_upload']['name'];
+$the_dir='uploads';
+
+
+
+if(move_uploaded_file($temp_name, $the_dir. "/" . $the_file)){
+
+echo "<h1>uploaded</h1>";
+    
+}
+else{
+
+    echo $the_message."<br>";
+
+}
+
 $the_error=$_FILES['file_upload']['error'];
 
 $the_message= $upload_errors[$the_error];
